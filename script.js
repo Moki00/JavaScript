@@ -1,22 +1,38 @@
 
 
-function freezeObj() {
-  'use strict';
-  const MATH_CONSTANTS = {
-    PI: 3.14
-  };
-  // Only change code below this line
+let arr1 = [0,1,2];
+let arr2 = [3,4,5];
+
+console.log(arr1.concat(arr2));
+
+//spread operator
+let arr3 = [...arr1, ...arr2]
+console.log(arr3);
+
+let arr4 = [...arr2, 'Moki', ...arr3]
+console.log(arr4);
+
+//rest operator: condenses multiple elements into an array
+// function multiply(multiplier, ...theArgs){
+//   return theArgs.map(function(element){
+//     return multiplier * element;
+//   });
+// }
+
+let multiply =(multiplier, ...theArgs)=>
+theArgs.map((element)=>multiplier*element)
+
+let arr5 = multiply(9,1,2,3);
+console.log(arr5);
 
 
-  // Only change code above this line
-  try {
-    MATH_CONSTANTS.PI = 99;
-  } catch(ex) {
-    console.log(ex);
-  }
-  return MATH_CONSTANTS.PI;
+//reduce
+function reduce(...theArgs){
+  return theArgs.reduce(function(count, element){
+    return count + element;
+  });
 }
-const PI = freezeObj();
 
-console.log(PI);
-console.log(freezeObj("x"));
+let arr6 = reduce(5,1,2);
+console.log(arr6);
+
