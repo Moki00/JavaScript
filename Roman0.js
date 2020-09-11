@@ -1,34 +1,24 @@
 //  numbers to be converted to Roman Numerals 
-
-//use Array.splice()  Array.indexOf('num')  Array.join("")
-
 //create 2 arrays: one for Roman Numerals, one for decimal equivalent
-
 //add numbers like 4, 9, and 40 
-
 // cant have more than 3 Roman Numerals together
+
+//enter as num, loop [search thru decimals, add roman to final, subtract that from num], get final
 
 
 function convertToRoman(num) {
-roman = ['I','IV','V','IX','X','XL','L','C','M','','']
+  decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
+  roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
 
-  if (num==1) {
-    return 'I';
+  var i;
+  for (i=0; i<decimal.length; i++) {
+
   }
-  if (num==5) {
-    return 'V';
-  }
-  if (num==10) {
-    return 'X';
-  }
-  if (num==100) {
-    return 'C';
-  }
-  else return 'error';
+
+return num;
 }
-  
 
-  
+
 console.log(convertToRoman(2));
 console.log(convertToRoman(3));
 console.log(convertToRoman(4));
