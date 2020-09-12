@@ -9,13 +9,16 @@
 function convertToRoman(num) {
   decimal = [1000, 900, 500, 400, 100, 90, 50, 40, 10, 9, 5, 4, 1];
   roman = ['M', 'CM', 'D', 'CD', 'C', 'XC', 'L', 'XL', 'X', 'IX', 'V', 'IV', 'I'];
+  output = '';
 
-  var i;
-  for (i=0; i<decimal.length; i++) {
-
+  for (let i=0; i<decimal.length; i++) {
+    while (num>=decimal[i]){
+      num-=decimal[i]
+      output+=roman[i]
+    }
   }
 
-return num;
+return output;
 }
 
 
