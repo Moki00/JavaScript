@@ -18,4 +18,4 @@ function rot13(str) {
 }
 
 // Change the inputs below to test
-rot13("LBH QVQ VG!");
+console.log(rot13("LBH QVQ VG!"));

@@ -22,3 +22,5 @@ function rot13(str) {
   ); // Rejoin the array into a string
 }
 
+console.log(rot13("i love you"));
+console.log(rot13("V YBIR LBH"));

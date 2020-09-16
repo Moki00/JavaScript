@@ -8,3 +8,6 @@ function rot13(str) {
     })
     .join('');
 }
+
+console.log(rot13("i love you"));
+console.log(rot13("V YBIR LBH"));

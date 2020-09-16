@@ -17,4 +17,4 @@ function rot13(str) {
   return arr.join(""); // Join all `arr` array characters back into a string, returning the deciphered `str` with all non-alphabetical characters preserved
 }
 
-rot13("FHCRE FRPERG!!!");
+console.log(rot13("FHCRE FRPERG!!!"));
