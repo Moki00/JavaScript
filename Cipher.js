@@ -1,20 +1,25 @@
 function rot13(str) {
+  //26 letters, 13 is half, cut in half!
   var abc = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", "M"];
-  var nop = ["N", "O", "P", "Q", "R", "S", 'T', 'U', 'V', 'W', 'X', 'Y', 'Z'];
+  var nop = ["N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z"];
 
+  var array = str.split("");
 
-  
-  var output = alpha[str];
+  for (i = 0; array.length > i; i++) {
+    for (j = 0; 13 > j; j++) {
+      if (array[i] === abc[j]) {
+        array[i] = nop[j];
+      } else if (array[i] === nop[j]) {
+        array[i] = abc[j];
+      }
+    }
+  }
 
-  return output;
+  return array.join("");
 }
 
-//26 letters, 13 is half, cut in half!
-//Use String.charCodeAt() to convert the English character to ASCII.
-//Use String.fromCharCode() to convert ASCII to English character.
-
 //should say "Free Code Camp"
-console.log(rot13(6));
+console.log(rot13("FHCRE FRPERG!!!"));
 
 //should say FREE PIZZA!
 console.log(rot13("SERR CVMMN!"));
