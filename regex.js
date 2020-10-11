@@ -8,11 +8,10 @@ let userCheck = /^[a-z]/gi;
 console.log(userCheck.test(username));
 console.log(username.match(userCheck));
 
+let movieName = "2001: Odyssey";
 // Regular Expressions: Match All Non-Numbers
-let movieName = "2001: A Space Odyssey";
 let noNumRegex = /\D/g;
 console.log(movieName.match(noNumRegex).length);
-
 // Regular Expressions: Match All Numbers
 let numRegex = /\d/g;
 console.log(movieName.match(numRegex).length);
