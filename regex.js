@@ -1,18 +1,35 @@
 // *** Regular Expressions = RegEx ***
 
-//z
+//Match Whitespace and NonWhiteSpace
+let whitespaceSample = "Whitespace is important in separating words";
+let countWhiteSpace = /\s/g;
+let countNonWhiteSpace = /\S/g;
+console.log(whitespaceSample.match(countWhiteSpace));
+console.log(whitespaceSample.match(countNonWhiteSpace));
 
-//Regular Expressions: Restrict Possible Usernames
-let username = "JackOfAllTrades";
-let userCheck = /^[a-z]/gi;
+//Restrict Possible Usernames
+let username = "Rettrh77";
+let userCheck = /^[a-z][a-z]+\d*$|^[a-z]\d\d+$/i;
 console.log(userCheck.test(username));
 console.log(username.match(userCheck));
+//^[a-z][a-z]+\d*$ (starts with a letter, then 1+ letters, and ends with 0+ numbers)
+//^[a-z]\d\d+$/i (starts with a letter, then a number with 1+ numbers)
+
+let superRegex = /^(?=\S)(?=(?:[^+]*\+){0,2}[^+]*$)(?=(?:[^(]*\()?[^(]*$)(?=(?:[^)]*\))?[^)]*$)[- .()+0-9]*[-.+()0-9]$/;
+// The ^ anchor asserts that we are at the beginning of the string
+//  (?=\S) asserts that what follows is a non-space character
+//  (?=(?:[^+]*\+){0,2}[^+]*$) : two "+" chars at the most
+//  (?=(?:[^(]*\()?[^(]*$) : One ( at the most
+//  (?=(?:[^)]*\))?[^)]*$) : One ) at the most
+// [- .()+0-9]* zero or more of the allowed chars
+// [-.+()0-9] end with one of the allowed chars that is not a space
+// The $ anchor asserts that we are at the end of the string
 
 let movieName = "2001: Odyssey";
-// Regular Expressions: Match All Non-Numbers
+// Regular Expressions: All Non-Numbers
 let noNumRegex = /\D/g;
 console.log(movieName.match(noNumRegex).length);
-// Regular Expressions: Match All Numbers
+// Regular Expressions: All Numbers
 let numRegex = /\d/g;
 console.log(movieName.match(numRegex).length);
 
@@ -45,15 +62,15 @@ let text = "<h1>Winter is coming</h1>";
 let myRegex = /<.*?>/;
 console.log(text.match(myRegex));
 
-// chewieRegex that uses  *  to match an uppercase "A" character immediately followed by zero or more lowercase "a" characters in chewieQuote. Your regex does not need flags or character classes, and it should not match any of the other quotes.
+// use  *  to match an uppercase "A" character immediately followed by zero or more lowercase "a" characters in chewieQuote.
 let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
 let chewieRegex = /Aa*/;
 let result4 = chewieQuote.match(chewieRegex);
 console.log(chewieQuote.match(chewieRegex));
 
 let twinkleStar = "Twinkle, twinkle, little star";
-let starRegex = /Twinkle/g; //
-// let result = twinkleStar; //
+let starRegex = /twinkle/gi;
+// let result = twinkleStar.match(starRegex);
 console.log(twinkleStar.match(starRegex));
 
 let exampleStr = "Let's have fun with regular expressions!";
