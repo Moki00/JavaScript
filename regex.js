@@ -106,21 +106,27 @@ let superRegex = /^(?=\S)(?=(?:[^+]*\+){0,2}[^+]*$)(?=(?:[^(]*\()?[^(]*$)(?=(?:[
 // [-.+()0-9] end with one of the allowed chars that is not a space
 // The $ anchor asserts that we are at the end of the string
 
+let quit = "quit";
+let noquit = "noqit";
+let quRegex = /q(?=u)/; //Positive Lookahead
+let qRegex = /q(?!u)/; //Negative Lookahead
+console.log(quit.match(quRegex)); // Returns ["q"], because there is a "u" after q(?=u)
+console.log(noquit.match(quRegex)); // null, because there is a "u" after q(?=u)
+console.log(quit.match(qRegex)); // null, because there is no "u" after q(?!u)
+console.log(noquit.match(qRegex)); // Returns ["q"], because there is no "u" after q(?!u)
+
 // Lookahead with (?=...) or (?!...)
 let password = "abc123";
 let checkPass = /(?=\w{3,6})(?=\D*\d)/;
 console.log(checkPass.test(password)); // Returns true
 
-let sampleJob = "astronaut";
-let pwRegex = /(?=\w{5,})(?=\d+\d)/; //  greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
-console.log(pwRegex.test(sampleJob)); //false
-console.log(sampleJob.match(pwRegex)); //null
+let sampleLookahead = "astr1on11aut";
+let pwRegex = /^(?=\D)(?=\w{5,})(?=\w*\d{2,})/;
+//  do not begin with numbers ^(?=\D)
+// greater than 5 characters (?=\w{5,})
+//  have two consecutive digits after a character (?=\w*\d{2,})
+console.log(sampleLookahead.match(pwRegex)); // ""
 
-let quit = "quit";
-let noquit = "noqit";
-let quRegex = /q(?=u)/; //Positive Lookahead
-let qRegex = /q(?!u)/; //Negative Lookahead
-console.log(quit.match(quRegex)); // Returns ["q"], because there is a "u" after it
-console.log(noquit.match(quRegex)); // null, because there is a "u" after it
-console.log(quit.match(qRegex)); // null, because there is no "u" after it
-console.log(noquit.match(qRegex)); // Returns ["q"], because there is no "u" after it
+/*
+
+*/
