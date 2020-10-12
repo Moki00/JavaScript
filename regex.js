@@ -1,11 +1,92 @@
 // *** Regular Expressions = RegEx ***
 
-//Match Whitespace and NonWhiteSpace
-let whitespaceSample = "Whitespace is important in separating words";
-let countWhiteSpace = /\s/g;
-let countNonWhiteSpace = /\S/g;
-console.log(whitespaceSample.match(countWhiteSpace));
-console.log(whitespaceSample.match(countNonWhiteSpace));
+// Match a Literal String with Different Possibilities
+let petString = "James has a pet cat.";
+let petRegex = /dog|cat|bird|fish/;
+console.log(petRegex.test(petString)); //true, because there's a cat
+console.log(petString.match(petRegex)); //cat
+
+// after this Regex below "g" is global and "i" is ignore case
+let quoteSample2 = "This looks at all vowels.";
+let vowelRegex = /[aeiou]/gi;
+console.log(quoteSample2.match(vowelRegex));
+
+let exampleStr = "Let's have fun with regular expressions!";
+let unRegex = /.lar/;
+console.log(unRegex.test(exampleStr)); //true, it's in the String
+console.log(exampleStr.match(unRegex)); //ular, fills in the character before
+
+// use  *  to match an uppercase "A" character immediately followed by zero or more lowercase "a" characters in chewieQuote.
+let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
+let chewieRegex = /Aa*/;
+console.log(chewieQuote.match(chewieRegex));
+
+let twinkleStar = "Twinkle, twinkle, little star";
+let starRegex = /twinkle/gi;
+console.log(twinkleStar.match(starRegex));
+
+//Find Characters with Lazy Matching
+let text = "<h1>Winter is coming</h1>";
+let lazyRegex = /<.*?>/; //this finds everything between <>
+let lazyRegex2 = /W.*?r/; //this finds everything between W r
+console.log(text.match(lazyRegex));
+console.log(text.match(lazyRegex2));
+
+//  [\W]
+let quoteSample = "The five boxing wizards jump quickly.";
+let nonAlphabetRegex = /[\W]/g; //not letters and numbers
+console.log(quoteSample.match(nonAlphabetRegex).length); //6 = 5 spaces and a period
+
+// Match All Letters and Numbers (shorthand character classes)
+let alphabetRegexV2 = /[\w+]/g;
+console.log(quoteSample.match(alphabetRegexV2).length);
+
+// The regex /z+/ matches the letter z when it appears one or more times in a row.
+let Criminals = "P6P2P7P4P5CCCCCP3P1";
+let reCriminals = /C+/;
+console.log(Criminals.match(reCriminals)); //CCCCC
+
+// Beginning String Patterns with ^
+let rickyAndCal = "Cal and Ricky both like racing.";
+let calRegex = /^Cal/;
+console.log(calRegex.test(rickyAndCal)); //true
+
+// Ending String Patterns with $
+let caboose = "The last car on a train is the caboose";
+let lastRegex = /boose$/;
+console.log(lastRegex.test(caboose)); //true, because it's at the end
+console.log(caboose.match(lastRegex)); //boose
+
+let movieName = "2001: Odyssey";
+let noNumRegex = /\D/g; // All Non-Numbers
+console.log(movieName.match(noNumRegex).length); //9 non-numbers
+let numRegex = /\d/g; // All Numbers
+console.log(movieName.match(numRegex).length); //4 numbers
+
+// \s and \S
+let whitespaceSample = "Whitespace is important in separating words.";
+let countWhiteSpace = /\s/g; //Whitespace
+let countNonWhiteSpace = /\S/g; //NonWhiteSpace
+console.log(whitespaceSample.match(countWhiteSpace)); //5 with the array
+console.log(whitespaceSample.match(countNonWhiteSpace)); //38 with the array
+
+//Check for All or None
+let favWord = "favorite";
+let favRegex = /favou?rite/; //This checks for zero or one of the preceding element
+console.log(favRegex.test(favWord));
+
+//Specify Upper and Lower Number of Matches
+let ohStr = "Ohhhh no";
+let ohRegex = /Oh{3,6} no/;
+let timRegex = /Tim{4}ber/; // exactly 4 m's
+console.log(ohRegex.test(ohStr));
+console.log(ohStr.match(ohRegex));
+
+let A4 = "aaaah";
+let A2 = "aah";
+let multipleA = /a{3,5}h/; //from 3 to 5 a's
+console.log(multipleA.test(A4)); //true
+console.log(multipleA.test(A2)); //false, not enough
 
 //Restrict Possible Usernames
 let username = "Rettrh77";
@@ -25,69 +106,21 @@ let superRegex = /^(?=\S)(?=(?:[^+]*\+){0,2}[^+]*$)(?=(?:[^(]*\()?[^(]*$)(?=(?:[
 // [-.+()0-9] end with one of the allowed chars that is not a space
 // The $ anchor asserts that we are at the end of the string
 
-let movieName = "2001: Odyssey";
-// Regular Expressions: All Non-Numbers
-let noNumRegex = /\D/g;
-console.log(movieName.match(noNumRegex).length);
-// Regular Expressions: All Numbers
-let numRegex = /\d/g;
-console.log(movieName.match(numRegex).length);
+// Lookahead with (?=...) or (?!...)
+let password = "abc123";
+let checkPass = /(?=\w{3,6})(?=\D*\d)/;
+console.log(checkPass.test(password)); // Returns true
 
-// Regular Expressions: Match Everything But Letters and Numbers
-let quoteSample = "The five boxing wizards jump quickly.";
-let nonAlphabetRegex = /[\W]/g;
-console.log(quoteSample.match(nonAlphabetRegex).length);
+let sampleJob = "astronaut";
+let pwRegex = /(?=\w{5,})(?=\d+\d)/; //  greater than 5 characters long, do not begin with numbers, and have two consecutive digits.
+console.log(pwRegex.test(sampleJob)); //false
+console.log(sampleJob.match(pwRegex)); //null
 
-//Regular Expressions: Match All Letters and Numbers (shorthand character classes)
-let alphabetRegexV2 = /[\w+]/g;
-console.log(quoteSample.match(alphabetRegexV2).length);
-
-// Regular Expressions: Match Ending String Patterns
-let caboose = "The last car on a train is the caboose";
-let lastRegex = /caboose$/;
-console.log(lastRegex.test(caboose));
-
-// Regular Expressions: Match Beginning String Patterns
-let rickyAndCal = "Cal and Ricky both like racing.";
-let calRegex = /^Cal/;
-console.log(calRegex.test(rickyAndCal));
-
-// The regex /z+/ matches the letter z when it appears one or more times in a row.
-let Criminals = "P6P2P7P4P5CCCCCP3P1";
-let reCriminals = /C+/;
-console.log(Criminals.match(reCriminals));
-
-//Find Characters with Lazy Matching
-let text = "<h1>Winter is coming</h1>";
-let myRegex = /<.*?>/;
-console.log(text.match(myRegex));
-
-// use  *  to match an uppercase "A" character immediately followed by zero or more lowercase "a" characters in chewieQuote.
-let chewieQuote = "Aaaaaaaaaaaaaaaarrrgh!";
-let chewieRegex = /Aa*/;
-let result4 = chewieQuote.match(chewieRegex);
-console.log(chewieQuote.match(chewieRegex));
-
-let twinkleStar = "Twinkle, twinkle, little star";
-let starRegex = /twinkle/gi;
-// let result = twinkleStar.match(starRegex);
-console.log(twinkleStar.match(starRegex));
-
-let exampleStr = "Let's have fun with regular expressions!";
-let unRegex = /.un/;
-// let result = unRegex.test(exampleStr);
-console.log(unRegex.test(exampleStr));
-
-// after this Regex below "g" is global and "i" is ignore case
-let quoteSample2 =
-  "Beware of bugs in the above code; I have only proved it correct, not tried it.";
-let vowelRegex = /[aeiou]/gi;
-let result2 = quoteSample2.match(vowelRegex);
-console.log(quoteSample2.match(vowelRegex));
-
-// Match a Literal String with Different Possibilities
-let petString = "James has a pet cat.";
-let petString2 = "James has a pet rock.";
-let petRegex = /dog|cat|bird|fish/;
-console.log(petRegex.test(petString));
-console.log(petRegex.test(petString2));
+let quit = "quit";
+let noquit = "noqit";
+let quRegex = /q(?=u)/; //Positive Lookahead
+let qRegex = /q(?!u)/; //Negative Lookahead
+console.log(quit.match(quRegex)); // Returns ["q"], because there is a "u" after it
+console.log(noquit.match(quRegex)); // null, because there is a "u" after it
+console.log(quit.match(qRegex)); // null, because there is no "u" after it
+console.log(noquit.match(qRegex)); // Returns ["q"], because there is no "u" after it
