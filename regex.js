@@ -127,6 +127,12 @@ let pwRegex = /^(?=\D)(?=\w{5,})(?=\w*\d{2,})/;
 //  have two consecutive digits after a character (?=\w*\d{2,})
 console.log(sampleLookahead.match(pwRegex)); // ""
 
-/*
+let testStr = "Pumpkin";
+let testRegex = /P(engu|umpk)in/;
+testRegex.test(testStr);
+let myString = "Eleanor Roosevelt";
+let myRegex = /(Eleanor|Franklin) Roosevelt/;
+let result = testRegex.test(myRegex);
+console.log(testRegex.test(myRegex));
 
-*/
+//
