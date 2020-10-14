@@ -144,12 +144,30 @@ console.log(fdr.match(myRegex));
 //An example would be \1 to match the first group.
 //example below matches any word that occurs twice separated by a space:
 let repeatStr = "regex regex";
-let repeatRegex = /(\w+)\s\1/;
+let repeatRegex = /(\w+)\s\1/; //all letters and number, then a space, then \w again
 console.log(repeatRegex.test(repeatStr)); //  true
 console.log(repeatStr.match(repeatRegex)); // Returns ["regex regex", "regex"]
 
-let repeatNum = "42 42 42";
-let reRegex = /(\w+)\s\1/; // Change this line
+let repeatNum = "42 42 42 42";
+let reRegex = /^(\d+)\s\1\s\1$/; // All Numbers with whitespaces
 console.log(reRegex.test(repeatNum));
 console.log(repeatNum.match(reRegex));
+
+// Use Capture Groups to Search and Replace using .replace() on a string
+let wrongText = "The sky is silver.";
+let silverRegex = /silver/;
+wrongText.replace(silverRegex, "blue"); // Returns "The sky is blue."
+//You can also access capture groups in the replacement string with dollar signs ($).
+
+"Code Camp".replace(/(\w+)\s(\w+)/, "$2 $1");
+// Returns "Camp Code"
+//Write a regex fixRegex using three capture groups that will search for each word in the string "one two three"
+//update the replaceText variable to replace "one two three" with the string "three two one" and assign the result to the result variable
+//use the dollar sign ($) syntax.
+
+let str = "one two three";
+let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
+let replaceText = "$3 $2 $1";
+console.log(str.replace(fixRegex, replaceText));
+
 //
