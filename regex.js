@@ -127,12 +127,29 @@ let pwRegex = /^(?=\D)(?=\w{5,})(?=\w*\d{2,})/;
 //  have two consecutive digits after a character (?=\w*\d{2,})
 console.log(sampleLookahead.match(pwRegex)); // ""
 
+// mixed grouping of characters
 let testStr = "Pumpkin";
 let testRegex = /P(engu|umpk)in/;
-testRegex.test(testStr);
+let fdr = "Franklin D. Roosevelt";
 let myString = "Eleanor Roosevelt";
-let myRegex = /(Eleanor|Franklin) Roosevelt/;
-let result = testRegex.test(myRegex);
-console.log(testRegex.test(myRegex));
+let myRegex = /(Eleanor|Franklin).* Roosevelt/g;
+console.log(myRegex.test(myString));
+console.log(fdr.match(myRegex));
 
+//Reuse Patterns Using Capture Groups
+//Some patterns will occur multiple times in a string
+//search for repeat substrings using capture groups
+//Parentheses, ( and ), are used to find repeat substrings; regex of the pattern in the parentheses.
+//specify where that repeat string will appear with a backslash (\) and then a number...starts at 1 and increases with each additional capture group
+//An example would be \1 to match the first group.
+//example below matches any word that occurs twice separated by a space:
+let repeatStr = "regex regex";
+let repeatRegex = /(\w+)\s\1/;
+console.log(repeatRegex.test(repeatStr)); //  true
+console.log(repeatStr.match(repeatRegex)); // Returns ["regex regex", "regex"]
+
+let repeatNum = "42 42 42";
+let reRegex = /(\w+)\s\1/; // Change this line
+console.log(reRegex.test(repeatNum));
+console.log(repeatNum.match(reRegex));
 //
