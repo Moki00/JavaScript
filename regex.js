@@ -159,7 +159,7 @@ let silverRegex = /silver/;
 wrongText.replace(silverRegex, "blue"); // Returns "The sky is blue."
 //You can also access capture groups in the replacement string with dollar signs ($).
 
-"Code Camp".replace(/(\w+)\s(\w+)/, "$2 $1");
+console.log("Code Camp".replace(/(\w+)\s(\w+)/, "$2 $1"));
 // Returns "Camp Code"
 //Write a regex fixRegex using three capture groups that will search for each word in the string "one two three"
 //update the replaceText variable to replace "one two three" with the string "three two one" and assign the result to the result variable
@@ -170,4 +170,15 @@ let fixRegex = /(\w+)\s(\w+)\s(\w+)/;
 let replaceText = "$3 $2 $1";
 console.log(str.replace(fixRegex, replaceText));
 
-//
+//Remove Whitespace from Start and End
+// remove the whitespace at the start and end of strings
+//  /\s/   = Whitespace
+//The String.prototype.trim() method would work here, complete this challenge using regular expressions
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // removes whitespace in start and end of string
+let empty = "";
+let finale = hello.replace(wsRegex, "");
+console.log(finale.split(""));
+console.log(hello);
+// https://regexr.com/5b2o7
