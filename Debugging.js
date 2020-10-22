@@ -67,6 +67,10 @@ function countToFive() {
 }
 countToFive();
 
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console,
+//*+-*-+*+-*+*+*+*+-+
+
 function zeroArray(m, n) {
   // Creates a 2-D array with m rows and n columns of zeroes
   let newArray = [];
@@ -84,7 +88,3 @@ function zeroArray(m, n) {
 }
 let matrix = zeroArray(3, 2);
 console.log(matrix);
-
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console,
-//*+-*-+*+-*+*+*+*+-+
