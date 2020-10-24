@@ -1,15 +1,8 @@
-let simpleArray = ["one", 2, "three", true, false, undefined, null];
-console.log(simpleArray.length); // logs 7
-
 let complexArray = [
   [
     {
       one: 1,
       two: 2,
-    },
-    {
-      three: 3,
-      four: 4,
     },
   ],
   [
@@ -31,9 +24,9 @@ console.log(abcd);
 
 let twentyThree = "XXIII";
 let romanNumerals = ["XXI", "XXII"];
-romanNumerals.unshift("XIX", "XX");
+romanNumerals.unshift("XIX", "XX"); //adds on front
 console.log(romanNumerals); // now equals ['XIX', 'XX', 'XXI', 'XXII']
-romanNumerals.push(twentyThree);
+romanNumerals.push(twentyThree); //adds on the end
 console.log(romanNumerals); // now equals ['XIX', 'XX', 'XXI', 'XXII', 'XXIII']
 
 function mixedNumbers(arr2) {
@@ -110,21 +103,61 @@ console.log(weatherConditions.slice(1, 2)); // snow
 console.log(weatherConditions.slice(2, 99)); // ["sleet", "hail", "clear"];
 console.log(weatherConditions); // weatherConditions still equals ['rain', 'snow', 'sleet', 'hail', 'clear']
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console,
-//*+-*-+*+-*+*+*+*+-+
-
-function forecast(arr) {
-  // Only change code below this line
-  arr.slice(3, 5);
-  return arr;
+function forecast(arr23) {
+  return arr23.slice(2, 4);
 }
-
-// Only change code above this line
 console.log(
   forecast(["cold", "rainy", "warm", "sunny", "cool", "thunderstorms"])
 );
 
-console.log();
+let thisArray = [true, true, undefined, false, null];
+let thatArray = [...thisArray]; //spread Operator copies all of an array's elements
+console.log(thatArray); // thatArray equals [true, true, undefined, false, null]
+console.log(thisArray); // thisArray remains unchanged and thatArray contains the same elements as thisArray
 
-console.log();
+function copyMachine(arr, num) {
+  let newArr = [];
+  while (num >= 1) {
+    newArr.unshift([...arr]);
+    num--;
+  }
+  return newArr;
+}
+console.log(copyMachine([true, false, true], 2));
+
+function spreadOut() {
+  let fragment = ["to", "code"];
+  let sentence = ["learning", ...fragment, "is", "fun"];
+  return sentence;
+}
+console.log(spreadOut()); //  ["learning", "to", "code", "is", "fun"]
+
+let fruits = ["pears", "foooo", "oranges", "peaches", "pears"];
+console.log(fruits.indexOf("dates")); // returns -1 because it does not exist
+console.log(fruits.indexOf("oranges")); // returns 2
+console.log(fruits.indexOf("pears")); // returns 0, the first index at which the element exists
+
+function quickCheck(arr, elem) {
+  if (arr.indexOf(elem) == -1) {
+    return false;
+  } else {
+    return true;
+  }
+}
+console.log(quickCheck(["squash", "mushrooms", "shallots"], "mushrooms")); // indexOf
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console,
+//*+-*-+*+-*+*+*+*+-+
+
+function greaterThanTen(arr) {
+  let newArr = [];
+  for (let i = 0; i < arr.length; i++) {
+    if (arr[i] > 10) {
+      newArr.push(arr[i]);
+    }
+  }
+  return newArr;
+}
+
+console.log(greaterThanTen([2, 12, 8, 14, 80, 0, 1])); // returns the object [12, 14, 80]
