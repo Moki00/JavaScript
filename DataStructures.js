@@ -187,3 +187,55 @@ console.log(typeof nestedArray2); //object
 
 //*+-*-+*+-*+*+*+*+-+
 console.clear(); // to clear the browser console ***CLEAR***
+
+const tekkenCharacter = {
+    player: "Hwoarang",
+    fightingStyle: "Tae Kwon Doe",
+    human: true,
+};
+tekkenCharacter.origin = "South Korea"; // add an additional property
+tekkenCharacter["hair color"] = "dyed orange"; //Bracket notation is required if your property has a space in it
+const eyes = "eye color"; //or if you want to use a variable to name the property.
+
+tekkenCharacter[eyes] = "brown";
+
+console.log(tekkenCharacter); //{player: 'Hwoarang', fightingStyle: 'Tae Kwon Doe', human: true, origin: 'South Korea', 'hair color': 'dyed orange', 'eye color': 'brown'};
+
+let nestedObject = {
+    id: 28802695164,
+    date: "December 31, 2016",
+    data: {
+        totalUsers: 99,
+        online: 80,
+        onlineStatus: {
+            active: 67,
+            away: 13,
+            busy: 8,
+        },
+    },
+};
+nestedObject.data.onlineStatus.busy = 42;
+
+console.log(nestedObject);
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
+
+let selectedFood = getCurrentFood(scannedItem);
+let inventory = foods[selectedFood];
+
+let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28,
+    bananas: 13,
+    grapes: 35,
+    strawberries: 27,
+};
+
+function checkInventory(scannedItem) {
+    // Only change code below this line
+    // Only change code above this line
+}
+
+console.log(checkInventory("apples"));
