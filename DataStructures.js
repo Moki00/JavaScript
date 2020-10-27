@@ -235,7 +235,7 @@ console.log(nestedObject);
 
 //Access Property names with Bracket Notation
 
-let foods = {
+let foods2 = {
     apples: 25,
     oranges: 32,
     plums: 28,
@@ -246,11 +246,62 @@ let foods = {
 
 function checkInventory(scannedItem) {
     // Only change code below this line
-    return foods[scannedItem];
+    return foods2[scannedItem];
     // Only change code above this line
 }
 
 console.log(checkInventory("apples"));
 
+//Use the delete Keyword to Remove Object Properties
+
+let foods = {
+    apples: 25,
+    oranges: 32,
+    plums: 28,
+    bananas: 13,
+    grapes: 35,
+    strawberries: 27,
+};
+
+// Only change code below this line
+delete foods["oranges"];
+delete foods.plums;
+delete foods.strawberries;
+// Only change code above this line
+
+console.log(foods);
+
 //*+-*-+*+-*+*+*+*+-+
 console.clear(); // to clear the browser console ***CLEAR***
+//*+-*-+*+-*+*+*+*+-+
+
+//Check if an Object has a Property
+
+let users = {
+    Alan: {
+        age: 27,
+        online: true,
+    },
+    Jeff: {
+        age: 32,
+        online: true,
+    },
+    Sarah: {
+        age: 48,
+        online: true,
+    },
+    Ryan: {
+        age: 19,
+        online: true,
+    },
+};
+
+function isEveryoneHere(obj) {
+    // Only change code below this line
+    users.hasOwnProperty("Alan");
+    "Alan" in users;
+    // both return true
+    // Only change code above this line
+}
+
+console.log(isEveryoneHere(users));
