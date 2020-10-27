@@ -18,6 +18,8 @@ function mixedNumbers(arr2) {
 }
 console.log(mixedNumbers(["IV", 5, "six"])); // ["I", 2, "three", "IV", 5, "six", 7, "VIII", 9]
 
+//Remove Items from an Array with pop() and shift()
+
 let greetings = ["whats up?", "hello", "see ya!"];
 greetings.pop();
 console.log(greetings); // ['whats up?', 'hello']
@@ -33,6 +35,8 @@ function popShift(arr) {
     return [shifted, popped2];
 }
 console.log(popShift(["challenge", "is", "not", "complete"])); // (2) ["challenge", "complete"]
+
+//Remove Items Using splice()
 
 let today = ["today", "was", "not", "so", "great"];
 console.log(today.splice(2, 2)); // ["not", "so"]  (removes 2 elements beginning with the 3rd element)
@@ -95,6 +99,8 @@ let thatArray = [...thisArray]; //spread Operator copies all of an array's eleme
 console.log(thatArray); // thatArray equals [true, true, undefined, false, null]
 console.log(thisArray); // thisArray remains unchanged and thatArray contains the same elements as thisArray
 
+//Copy an Array with the Spread Operator
+
 function copyMachine(arr, num) {
     let newArr = [];
     while (num >= 1) {
@@ -105,12 +111,16 @@ function copyMachine(arr, num) {
 }
 console.log(copyMachine([true, false, true], 2));
 
+//Combine Arrays with the Spread Operator
+
 function spreadOut() {
     let fragment = ["to", "code"];
     let sentence = ["learning", ...fragment, "is", "fun"];
     return sentence;
 }
 console.log(spreadOut()); //  ["learning", "to", "code", "is", "fun"]
+
+//Check For The Presence of an Element With indexOf()
 
 let fruits = ["pears", "foooo", "oranges", "peaches", "pears"];
 console.log(fruits.indexOf("dates")); // returns -1 because it does not exist
@@ -125,6 +135,8 @@ function quickCheck(arr, elem) {
     }
 }
 console.log(quickCheck(["squash", "mushrooms", "shallots"], "mushrooms")); // indexOf
+
+//Iterate Through All an Array's Items Using For Loops
 
 function greaterThanTen(arr) {
     let newArr2 = [];
@@ -161,6 +173,8 @@ console.log(
     )
 );
 
+//Create complex multi-dimensional arrays
+
 let nestedArray2 = [
     // top, or first level - the outer most array
     ["deep"], // an array within an array, 2 levels of depth
@@ -185,8 +199,7 @@ console.log(nestedArray2[2][1][0][0][0]); //deep5
 console.log(nestedArray2.length); //3 arrays
 console.log(typeof nestedArray2); //object
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
+//Add Key-Value Pairs to JavaScript Objects
 
 const tekkenCharacter = {
     player: "Hwoarang",
@@ -200,6 +213,8 @@ const eyes = "eye color"; //or if you want to use a variable to name the propert
 tekkenCharacter[eyes] = "brown";
 
 console.log(tekkenCharacter); //{player: 'Hwoarang', fightingStyle: 'Tae Kwon Doe', human: true, origin: 'South Korea', 'hair color': 'dyed orange', 'eye color': 'brown'};
+
+//Modify an Object Nested Within an Object
 
 let nestedObject = {
     id: 28802695164,
@@ -218,11 +233,7 @@ nestedObject.data.onlineStatus.busy = 42;
 
 console.log(nestedObject);
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-
-let selectedFood = getCurrentFood(scannedItem);
-let inventory = foods[selectedFood];
+//Access Property names with Bracket Notation
 
 let foods = {
     apples: 25,
@@ -235,7 +246,11 @@ let foods = {
 
 function checkInventory(scannedItem) {
     // Only change code below this line
+    return foods[scannedItem];
     // Only change code above this line
 }
 
 console.log(checkInventory("apples"));
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
