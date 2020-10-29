@@ -262,46 +262,74 @@ let foods = {
     grapes: 35,
     strawberries: 27,
 };
-
-// Only change code below this line
 delete foods["oranges"];
 delete foods.plums;
 delete foods.strawberries;
-// Only change code above this line
-
 console.log(foods);
+
+//Check if an Object has a Property
+
+let users45 = {
+    Alan: { age: 27, online: true },
+    Jeff: { age: 32, online: true },
+    Sarah: { age: 48, online: true },
+    Ryan: { age: 19, online: true },
+};
+
+function isEveryoneHere(obj) {
+    console.log(obj.hasOwnProperty("Alan" && "Jeff" && "Sarah" && "Ryan")); //true
+    if (
+        (obj.hasOwnProperty("Alan") &&
+            obj.hasOwnProperty("Jeff") &&
+            obj.hasOwnProperty("Sarah") &&
+            obj.hasOwnProperty("Ryan")) == true
+    ) {
+        return true;
+    }
+    return false;
+}
+console.log(isEveryoneHere(users45));
+
+//Iterate Through the Keys of an Object with a for...in Statement
+
+function countOnline(usersObj) {
+    let result = 0;
+    console.log(usersObj);
+    for (let user in usersObj) {
+        console.log(usersObj[user].online);
+        if (usersObj[user].online === true) {
+            result++;
+            console.log(result);
+        }
+    }
+    return result;
+}
+
+console.log(
+    countOnline({
+        Alan: { online: false },
+        Jeff: { online: true },
+        Sarah: { online: false },
+    })
+);
+
+//Generate an Array of All Object Keys with Object.keys()
+
+let users = {
+    Alan: { age: 27, online: false },
+    Jeff: { age: 32, online: true },
+    Sarah: { age: 48, online: false },
+    Ryan: { age: 19, online: true },
+};
+
+function getArrayOfUsers(obj) {
+    return Object.keys(obj);
+}
+
+console.log(getArrayOfUsers(users));
+
+//Modify an Array Stored in an Object
 
 //*+-*-+*+-*+*+*+*+-+
 console.clear(); // to clear the browser console ***CLEAR***
 //*+-*-+*+-*+*+*+*+-+
-
-//Check if an Object has a Property
-
-let users = {
-    Alan: {
-        age: 27,
-        online: true,
-    },
-    Jeff: {
-        age: 32,
-        online: true,
-    },
-    Sarah: {
-        age: 48,
-        online: true,
-    },
-    Ryan: {
-        age: 19,
-        online: true,
-    },
-};
-
-function isEveryoneHere(obj) {
-    // Only change code below this line
-    users.hasOwnProperty("Alan");
-    "Alan" in users;
-    // both return true
-    // Only change code above this line
-}
-
-console.log(isEveryoneHere(users));
