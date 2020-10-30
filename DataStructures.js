@@ -330,10 +330,6 @@ console.log(getArrayOfUsers(users));
 
 //Modify an Array Stored in an Object
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-//*+-*-+*+-*+*+*+*+-+
-
 let user = {
     name: "Kenneth",
     age: 28,
@@ -352,10 +348,13 @@ let user = {
 
 function addFriend(userObj, friend) {
     // Only change code below this line
-    console.log(userObj);
-    console.log(friend);
-
+    console.log(userObj); //the big user object above
+    console.log(friend); //Pete
+    console.log(userObj.data.friends); // Sam, Kira, Tomo
+    console.log(userObj.data.friends.push(friend)); // 4
+    console.log(userObj.data.friends); // Sam, Kira, Tomo, Pete
+    return userObj.data.friends;
     // Only change code above this line
 }
 
-console.log(addFriend(user, "Pete"));
+console.log(addFriend(user, "Pete")); //undefined
