@@ -49,14 +49,14 @@ console.log(factorialize(5));
 //Find the Longest Word in a String
 function findLongestWordLength(str) {
     //split the words into arrays
-    let arr = str.split(" ");
-    console.log(arr);
+    let arr43 = str.split(" ");
+    console.log(arr43);
 
     //make a for loop to cycle through all the words for the greatest length
     let longz = 0;
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i].length > longz) {
-            longz = arr[i].length;
+    for (let i = 0; i < arr43.length; i++) {
+        if (arr43[i].length > longz) {
+            longz = arr43[i].length;
         }
         console.log(longz);
     }
@@ -71,19 +71,34 @@ console.log(
 console.clear(); // to clear the browser console ***CLEAR***
 //*+-*-+*+-*+*+*+*+-+
 
-// Return Largest Numbers in Arrays
+// Return Largest Numbers in a nested array
 
 function largestOfFour(arr) {
-    return arr;
+    let biggie = 0;
+    let container = [];
+    for (let i = 0; i < arr.length; i++) {
+        let???
+        for (let j = 0; j < arr[i].length; j++) {
+            if (biggie < arr[i][j]) {
+                biggie = arr[i][j];
+            }
+            console.log(arr[i][j]);
+        }
+    }
+    return container;
 }
 
-largestOfFour([
-    [4, 5, 1, 3],
-    [13, 27, 18, 26],
-    [32, 35, 37, 39],
-    [1000, 1001, 857, 1],
-]);
+console.log(
+    largestOfFour([
+        [4, 5, 1, 3],
+        [13, 27, 18, 26],
+        [32, 35, 37, 39],
+        [1000, 1001, 857, 1],
+    ])
+);
 
-// Return an array consisting of the largest number from each provided sub-array.
+//Return an array consisting of the largest number from each provided sub-array.
 //the provided array will contain exactly 4 sub-arrays.
-// you can iterate through an array with a simple for loop, and access each member with array syntax arr[i].
+// iterate through an array with a for loop
+//access each member with arr[i].
+// return [9, 99, 49, 8]
