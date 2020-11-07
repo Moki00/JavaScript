@@ -67,25 +67,30 @@ console.log(
     findLongestWordLength("The quick brown fox jumped over the lazy dog")
 );
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-//*+-*-+*+-*+*+*+*+-+
+//highest number using .sort
+
+var points2 = [40, 100, 1, 5, 25, 10];
+answer = points2.sort(function (a, b) {
+    return b - a;
+});
+console.log(answer[0]); //logs the highest number
 
 // Return Largest Numbers in a nested array
 
 function largestOfFour(arr) {
-    let biggie = 0;
-    let container = [];
+    let finalArray = [];
     for (let i = 0; i < arr.length; i++) {
-        let???
-        for (let j = 0; j < arr[i].length; j++) {
-            if (biggie < arr[i][j]) {
-                biggie = arr[i][j];
+        let biggest = arr[i][0]; //sets the biggest number in each array as the first
+        console.log(i + " Outer array"); //see what outer array we are in
+        for (let nested = 0; nested < arr[i].length; nested++) {
+            if (biggest < arr[i][nested]) {
+                biggest = arr[i][nested];
             }
-            console.log(arr[i][j]);
+            console.log(biggest);
         }
+        finalArray[i] = biggest;
     }
-    return container;
+    return finalArray; //should return  [5,27,39,1001]
 }
 
 console.log(
@@ -93,26 +98,34 @@ console.log(
         [4, 5, 1, 3],
         [13, 27, 18, 26],
         [32, 35, 37, 39],
-        [1000, 1001, 857, 1],
+        [1000, 1001, 857, 333],
     ])
 );
 
-//Return an array consisting of the largest number from each provided sub-array.
-//the provided array will contain exactly 4 sub-arrays.
-// iterate through an array with a for loop
-//access each member with arr[i].
-// return [9, 99, 49, 8]
+// Check if a string ends with the given target.
+// use one of the JavaScript substring methods
 
-// function largestOfFour(arr) {
-//     let biggie = 0;
-//     let container = [];
-//     for (let i = 0; i < arr.length; i++) {
-//         for (let j = 0; j < arr[i].length; j++) {
-//             if (biggie < arr[i][j]) {
-//                 biggie = arr[i][j];
-//             }
-//             console.log(arr[i][j]);
-//         }
-//     }
-//     return container;
-// }
+function confirmEnding(str, target) {
+    var re = new RegExp(target + "$"); //RegEx as an object
+    return re.test(str); //returns true or false
+}
+console.log(confirmEnding("Bastian", "n")); //true, because it's at the end
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
+//*+-*-+*+-*+*+*+*+-+
+
+// Repeat a String
+// Repeat a string for num times
+// Return an empty string if num is not a positive number
+// do not use the built-in .repeat() method.
+
+function repeatStringNumTimes(str, num) {
+    if (num < 0) {
+        return "";
+    } else {
+        return str;
+    }
+}
+
+console.log(repeatStringNumTimes("abc", 3));
