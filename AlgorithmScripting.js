@@ -102,3 +102,17 @@ console.log(
 // iterate through an array with a for loop
 //access each member with arr[i].
 // return [9, 99, 49, 8]
+
+// function largestOfFour(arr) {
+//     let biggie = 0;
+//     let container = [];
+//     for (let i = 0; i < arr.length; i++) {
+//         for (let j = 0; j < arr[i].length; j++) {
+//             if (biggie < arr[i][j]) {
+//                 biggie = arr[i][j];
+//             }
+//             console.log(arr[i][j]);
+//         }
+//     }
+//     return container;
+// }
