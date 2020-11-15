@@ -124,8 +124,12 @@ function repeatStringNumTimes(str, num) {
     if (num < 0) {
         return "";
     } else {
-        return str;
+        let combined;
+        for (let i = 0; i < num; i++) {
+            combined = str.push("1");
+        }
+        return combined;
     }
 }
 
-console.log(repeatStringNumTimes("abc", 3));
+console.log(repeatStringNumTimes("a----", 3));
