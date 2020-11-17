@@ -111,25 +111,30 @@ function confirmEnding(str, target) {
 }
 console.log(confirmEnding("Bastian", "n")); //true, because it's at the end
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-//*+-*-+*+-*+*+*+*+-+
-
-// Repeat a String
 // Repeat a string for num times
 // Return an empty string if num is not a positive number
 // do not use the built-in .repeat() method.
 
 function repeatStringNumTimes(str, num) {
-    if (num < 0) {
-        return "";
-    } else {
-        let combined;
-        for (let i = 0; i < num; i++) {
-            combined = str.push("1");
-        }
-        return combined;
+    let repeater = "";
+    while (num > 0) {
+        repeater += str;
+        num--;
     }
+    return repeater;
 }
 
-console.log(repeatStringNumTimes("a----", 3));
+console.log(repeatStringNumTimes("a----", 0));
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
+//*+-*-+*+-*+*+*+*+-+
+
+// Truncate a string if it is longer than the given maximum string length.
+//Return the truncated string with a ... ending.
+
+function truncateString(str, num) {
+    return str;
+}
+
+truncateString("A-tisket a-tasket A green and yellow basket", 8);
