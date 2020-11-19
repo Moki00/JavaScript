@@ -134,7 +134,13 @@ console.clear(); // to clear the browser console ***CLEAR***
 //Return the truncated string with a ... ending.
 
 function truncateString(str, num) {
-    return str;
+    let cut;
+    if (str.length <= num) {
+        return str;
+    } else {
+        cut = str.slice(0, num);
+        return cut + "...";
+    }
 }
 
-truncateString("A-tisket a-tasket A green and yellow basket", 8);
+console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
