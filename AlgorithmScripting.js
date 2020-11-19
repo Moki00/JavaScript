@@ -126,10 +126,6 @@ function repeatStringNumTimes(str, num) {
 
 console.log(repeatStringNumTimes("a----", 0));
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-//*+-*-+*+-*+*+*+*+-+
-
 // Truncate a string if it is longer than the given maximum string length.
 //Return the truncated string with a ... ending.
 
@@ -144,3 +140,43 @@ function truncateString(str, num) {
 }
 
 console.log(truncateString("A-tisket a-tasket A green and yellow basket", 8));
+
+// Create a function that looks through an array arr and returns the first element in it that passes a 'truth test'.
+// the 'truth test' is passed if func(num) is true.
+//If no element passes the test, return undefined
+
+function findElement(arr, func) {
+    let num = 0;
+    for (let i = 0; i < arr.length; i++) {
+        num = arr[i];
+        if (func(num) == true) {
+            return num;
+        }
+    }
+    return undefined;
+}
+
+console.log(findElement([1, 22, 99], (num) => num % 11 === 0)); //22
+console.log(findElement([1, 55, 3, 4], (num) => num % 2 === 0)); //4
+
+// Basic Algorithm Scripting: Boo who
+// Check if a value is classified as a boolean primitive
+// Boolean primitives are true and false.
+
+function booWho(bool) {
+    return bool === true || bool === false;
+}
+
+console.log(booWho(null)); // false
+console.log(booWho(true)); // true
+console.log(booWho(false)); // true
+console.log(booWho([1, 2, 3])); // false
+console.log(booWho([].slice)); // false
+console.log(booWho({ a: 1 })); // false
+console.log(booWho(NaN)); // false
+console.log(booWho(1)); // false
+console.log(booWho("true")); // false
+
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
+//*+-*-+*+-*+*+*+*+-+
