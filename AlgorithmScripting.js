@@ -180,3 +180,41 @@ console.log(booWho("true")); // false
 //*+-*-+*+-*+*+*+*+-+
 console.clear(); // to clear the browser console ***CLEAR***
 //*+-*-+*+-*+*+*+*+-+
+
+// Basic Algorithm Scripting: Title Case a Sentence
+// Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
+// For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
+
+// function titleCase(str) {
+//     console.log(str.length);
+
+//     let arr = str.split(" "); // separate str into an array
+//     for (i = 0; i < str.length; i++) {
+//         arr[i] = arr[i].toLowerCase(); //all char lowercase
+//     }
+//     arr[0] = arr[0].toUpperCase(); //first char uppercase
+//     for (i = 0; i < str.length; i++) {
+//         arr[i].replace(/\S(?!\s)/, (L) => L.toUpperCase());
+//     }
+//     // every char after a space should be capital
+//     //capStr = arr.join(""); // make array into a string
+//     return arr;
+// }
+
+function titleCase(str) {
+    var array1 = str.toLowerCase().split(" ");
+    var output = array1.map(function (val) {
+        return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+    });
+    return output.join(" ");
+}
+
+console.log(titleCase("I'm a little tea pot")); // should return a string.
+console.log(titleCase("I'm a little tea pot")); // should return I'm A Little Tea Pot.
+console.log(titleCase("sHoRt AnD sToUt")); // should return Short And Stout.
+console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT")); // should return Here Is My Handle Here Is My Spout.
+
+let hello = "   Hello, World!  ";
+let wsRegex = /^\s+|\s+$/g; // removes whitespace in start and end of string
+let finale = hello.replace(wsRegex, "");
+console.log(hello);

@@ -107,13 +107,13 @@ let superRegex = /^(?=\S)(?=(?:[^+]*\+){0,2}[^+]*$)(?=(?:[^(]*\()?[^(]*$)(?=(?:[
 // The $ anchor asserts that we are at the end of the string
 
 let quit = "quit";
-let noquit = "noqit";
+let noqit = "noqit";
 let quRegex = /q(?=u)/; //Positive Lookahead
 let qRegex = /q(?!u)/; //Negative Lookahead
 console.log(quit.match(quRegex)); // Returns ["q"], because there is a "u" after q(?=u)
-console.log(noquit.match(quRegex)); // null, because there is a "u" after q(?=u)
+console.log(noqit.match(quRegex)); // null, because there is a "u" after q(?=u)
 console.log(quit.match(qRegex)); // null, because there is no "u" after q(?!u)
-console.log(noquit.match(qRegex)); // Returns ["q"], because there is no "u" after q(?!u)
+console.log(noqit.match(qRegex)); // Returns ["q"], because there is no "u" after q(?!u)
 
 // Lookahead with (?=...) or (?!...)
 let password = "abc123";
