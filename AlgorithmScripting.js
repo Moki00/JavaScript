@@ -177,44 +177,72 @@ console.log(booWho(NaN)); // false
 console.log(booWho(1)); // false
 console.log(booWho("true")); // false
 
-//*+-*-+*+-*+*+*+*+-+
-console.clear(); // to clear the browser console ***CLEAR***
-//*+-*-+*+-*+*+*+*+-+
-
 // Basic Algorithm Scripting: Title Case a Sentence
 // Return the provided string with the first letter of each word capitalized. Make sure the rest of the word is in lower case.
 // For the purpose of this exercise, you should also capitalize connecting words like "the" and "of".
 
-// function titleCase(str) {
-//     console.log(str.length);
-
-//     let arr = str.split(" "); // separate str into an array
-//     for (i = 0; i < str.length; i++) {
-//         arr[i] = arr[i].toLowerCase(); //all char lowercase
-//     }
-//     arr[0] = arr[0].toUpperCase(); //first char uppercase
-//     for (i = 0; i < str.length; i++) {
-//         arr[i].replace(/\S(?!\s)/, (L) => L.toUpperCase());
-//     }
-//     // every char after a space should be capital
-//     //capStr = arr.join(""); // make array into a string
-//     return arr;
-// }
-
 function titleCase(str) {
-    var array1 = str.toLowerCase().split(" ");
-    var output = array1.map(function (val) {
-        return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
-    });
-    return output.join(" ");
+    var words = str.toLowerCase().split(" ");
+    for (let i = 0; i < words.length; i++) words[i] = firstLetterUp(words[i]);
+    str = words.join(" ");
+    return str;
 }
 
-console.log(titleCase("I'm a little tea pot")); // should return a string.
+function firstLetterUp(str) {
+    var word = str.split("");
+    word[0] = word[0].toUpperCase();
+    str = word.join("");
+    return str;
+}
+
+titleCase("I'm a little tea pot");
+
+// function titleCase(str) {
+//     var array1 = str.toLowerCase().split(" ");
+//     var output = array1.map(function (val) {
+//         return val.replace(val.charAt(0), val.charAt(0).toUpperCase());
+//     });
+//     return output.join(" ");
+// }
+
+// function titleCase(str) {
+//     return str.toLowerCase().replace(/(^|\s)\S/g, (L) => L.toUpperCase());
+// }
+
 console.log(titleCase("I'm a little tea pot")); // should return I'm A Little Tea Pot.
 console.log(titleCase("sHoRt AnD sToUt")); // should return Short And Stout.
 console.log(titleCase("HERE IS MY HANDLE HERE IS MY SPOUT")); // should return Here Is My Handle Here Is My Spout.
 
-let hello = "   Hello, World!  ";
-let wsRegex = /^\s+|\s+$/g; // removes whitespace in start and end of string
-let finale = hello.replace(wsRegex, "");
-console.log(hello);
+//*+-*-+*+-*+*+*+*+-+
+console.clear(); // to clear the browser console ***CLEAR***
+//*+-*-+*+-*+*+*+*+-+
+
+// Slice and Splice
+// two arrays and an index.
+// insert first array into the second array at index "n"
+// Return the resulting array. The input arrays should remain the same after the function runs.
+
+function frankenSplice(arr1, arr2, n) {
+    let combo = arr2.slice();
+    combo = arr1.splice(0);
+    return combo;
+}
+
+//slice
+//splice
+//for loop or spread operator
+
+console.log(frankenSplice([1, 2, 3], [4, 5, 6], 1));
+console.log(frankenSplice([1, 2, 3], [4, 5], 1)); //  should return [4, 1, 2, 3, 5].
+console.log(frankenSplice([1, 2], ["a", "b"], 1)); // should return ["a", 1, 2, "b"].
+console.log(
+    frankenSplice(
+        ["claw", "tentacle"],
+        ["head", "shoulders", "knees", "toes"],
+        2
+    )
+); // should return ["head", "shoulders", "claw", "tentacle", "knees", "toes"]
+
+// All elements from the first array should be added to the second array in their original order.
+// The first array should remain the same after the function runs.
+// The second array should remain the same after the function runs.
