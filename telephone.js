@@ -1,24 +1,18 @@
 function telephoneCheck(str) {
     // easy to decipher and generate
-    let dash2 = /^\d{3}-\d{3}-\d{4}$/gm; // 123-555-7890
-    let spaces = /^\d{3}\s*\d{3}\s*\d{4}$/gm; // 555 555 7890 and 0123456789
-    let space1 = /^1\s*\d{3}\s*\d{3}\s*\d{4}$/gm; // 1 234 555 8901
-    let dash2With1 = /^1\s*\d{3}-\d{3}-\d{4}$/gm; // 1 234-555-8901
+    let spaces = /^\d{3}[\s*-]?\d{3}[\s*-]?\d{4}$/gm; // 555 555 7890 and 0123456789 and 123-555-7890
+    let dash2With1 = /^1\s*\d{3}[\s-]?\d{3}[\s-]?\d{4}$/gm; // 1 234-555-8901 and 1 234 555 8901
     let bracketSpaceDash1 = /^(1[\s-]?)?[(]\d{3}[)]\s*\d{3}-\d{4}$/gm; // 1 (555) 555-5575 and (555) 555-7890 and (555)555-7890
 
-    let format1 = str.match(dash2);
     let format3 = str.match(spaces);
-    let format4 = str.match(space1);
     let format5 = str.match(dash2With1);
     let format6 = str.match(bracketSpaceDash1);
 
-    console.log(format1 + " has 2 dashes");
-    console.log(format3 + " has 0-2 spaces");
-    console.log(format4 + " has a 1 with spaces");
-    console.log(format5 + " has a 1 with 2 dashes");
+    console.log(format3 + " has 0-2 spaces or dashes");
+    console.log(format5 + " has a 1 with dashes or spaces");
     console.log(format6 + " has brackets and a dash and maybe 1");
 
-    if (format1 || format3 || format4 || format5 || format6) {
+    if (format3 || format5 || format6) {
         return true;
     } else {
         return false;
@@ -32,7 +26,7 @@ console.log(telephoneCheck("5555553555"));
 console.log(telephoneCheck("1 (555) 595-5555")); // 4
 console.log(telephoneCheck("(555)555-5558"));
 console.log(telephoneCheck("(555) 556-5555"));
-console.log(telephoneCheck("1 555-555-5575"));
+console.log(telephoneCheck("1 555 555 5575"));
 console.log(telephoneCheck("1 (555) 555-5575")); // 8
 
 // // 7 false
