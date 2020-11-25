@@ -1,7 +1,16 @@
-function checkCashRegister(price, cash, cid) {
-    var change;
-    change = cash - price;
-    console.log(cid);
+function checkCashRegister(price, customer, register) {
+    let cents = [1, 5, 10, 25, 100, 500, 1000, 2000, 10000];
+    let change = customer * 100 - price * 100;
+    let output = { status: null, change: [] };
+    let kickOut = true;
+
+    //array.reduceRight(function(total, currentValue, currentIndex, arr), initialValue)
+    let ffl4j4f4l = register.reduceRight(myFunction);
+    let myFunction = console.log(ffl4j4f4l);
+
+    if (price > cash) {
+        let x = { status: "INSUFFICIENT_FUNDS", change: [] };
+    }
     return change;
 }
 
@@ -23,9 +32,9 @@ console.log(
 
 // purchase price as the first argument (price)
 // payment as the second argument (cash)
-// cash-in-drawer (cid) as the third argument as a 2D array listing available currency.
+// cash-in-drawer (cid) as the third argument as a 2D array listing available money is in your register.
 
-// The checkCashRegister() function should always return an object with a status key and a change key.
+// The checkCashRegister function should always return an object with a status key and a change key.
 // Return {status: "INSUFFICIENT_FUNDS", change: []} if cash-in-drawer is less than the change due, or if you cannot return the exact change.
 // Return {status: "CLOSED", change: [...]} with cash-in-drawer as the value for the key change if it is equal to the change due.
 // Otherwise, return {status: "OPEN", change: [...]}
@@ -34,13 +43,11 @@ console.log(
 //create a program that will return an object containing a status key and a change key.
 //The value of status is the string INSUFFICIENT_FUNDS, CLOSED, or OPEN, and the value of change is a 2D array of the change due.
 
-//how much money is in your register beforehand
-//have a function to assign this information to a variable
-//see if you have enough money to complete the transaction and return change, or if you should close the register.
+// See if you have enough money to complete the transaction and return change, or if you should close the register.
 // know the value of each coin in the register, not just the sum of each
-//a nickel is worth .05, along with the fact that you have $2.05 worth of nickels in the cash register.
+// A nickel is worth .05, along with the fact that you have $2.05 worth of nickels in the cash register.
 // get as much change from one type of bill or coin before moving to the next, from greater to lesser value
-//Keep going until you have calculated all the change due.
+// Keep going until you have calculated all the change due.
 
 console.log(
     checkCashRegister(18.5, 20, [
