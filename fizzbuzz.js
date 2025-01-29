@@ -1,7 +1,6 @@
-func(15);
+fizzbuzz(30);
 
-function func(input) {
-  //Insert your code here
+function fizzbuzz(input) {
   const response = [];
   for (var i = 1; i <= input; i++) {
     if (i % 15 == 0) response.push("FizzBuzz");
@@ -10,5 +9,4 @@ function func(input) {
     else response.push(i);
   }
   console.log(response);
-  return response;
 }
